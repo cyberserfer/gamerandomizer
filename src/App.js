@@ -6,19 +6,38 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      displayResults: {},
-
+      siteType: customData.siteType, 
+      salvageState: customData.salvageState,
+      numberOfResultsInput: 0,
+      displayResults: [
+        "Results will show here",
+      ]
     }
+    this.genResults = this.genResults.bind(this);
+    this.numberResultsReturned = this.numberResultsReturned.bind(this);
   }
 
   genResults(e){
-    let {siteType, salvageState} = customData;
+    console.log("inside genResults")
+    this.setState({
+      displayResults: "" 
+    })
+    for(let i=0; i < this.state.numberOfResultsInput; i++){
+      let siteTypeRandom = Math.floor(Math.random() * this.state.siteType.length);
+      let salvageStateRandom = Math.floor(Math.random() * this.state.salvageState.length); 
+      let siteTypeResult = this.state.siteType[siteTypeRandom];
+      let salvageStateResult = this.state.salvageState[salvageStateRandom];
+      let addResult = siteTypeResult + " " + salvageStateResult;
 
-    for(let i=0; i < e.numberOfResults.value; i++){
-      let siteTypeReturn = Math.random() * siteType.length;
-      let salvageStateReturn = Math.random() * salvageState.length;
+      this.setState({ displayResults: [...this.state.displayResults, addResult]})
       
+      console.log("end of function")
+      console.log(this.state.displayResults)
     }
+  }
+
+  numberResultsReturned(e){
+    this.setState({numberOfResultsInput: e.target.value});
   }
 
   render() {
@@ -28,13 +47,19 @@ class App extends Component {
         <h2>Game Randomizer</h2>
         </header>
         <h3>Enter number of results to return</h3>
-          <form>
-            <input name="numberOfResults"></input>
-            <button onSubmit={this.genResults}>Submit</button>
+          <div>
+            <input name="numberOfResults" onChange={this.numberResultsReturned}></input>
+            <button onClick={this.genResults}>Submit</button>
             <div>
-              {this.state.displayResults}
+            <div><h3>Results</h3></div>
+            <div>
+              {this.state.displayResults.map((result, i) => {
+                return <div key={i}> {result} </div>
+              }
+              )}
             </div>
-          </form>
+            </div>
+          </div>
       </div>
     );
   }
