@@ -10,7 +10,7 @@ class App extends Component {
       salvageState: customData.salvageState,
       numberOfResultsInput: 0,
       displayResults: [
-        "Results will show here",
+        "Results will show here"
       ]
     }
     this.genResults = this.genResults.bind(this);
@@ -20,20 +20,22 @@ class App extends Component {
   genResults(e){
     console.log("inside genResults")
     this.setState({
-      displayResults: "" 
+      displayResults: []
     })
+    let addResult
     for(let i=0; i < this.state.numberOfResultsInput; i++){
       let siteTypeRandom = Math.floor(Math.random() * this.state.siteType.length);
       let salvageStateRandom = Math.floor(Math.random() * this.state.salvageState.length); 
       let siteTypeResult = this.state.siteType[siteTypeRandom];
       let salvageStateResult = this.state.salvageState[salvageStateRandom];
-      let addResult = siteTypeResult + " " + salvageStateResult;
+      addResult = siteTypeResult + " " + salvageStateResult;
 
-      this.setState({ displayResults: [...this.state.displayResults, addResult]})
+      
       
       console.log("end of function")
-      console.log(this.state.displayResults)
+      // console.log(this.state.displayResults)
     }
+    this.setState({ displayResults: [...this.state.displayResults, addResult]})
   }
 
   numberResultsReturned(e){
@@ -41,6 +43,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.displayResults)
     return (
       <div className="App">
         <header className="App-header">
@@ -53,9 +56,8 @@ class App extends Component {
             <div>
             <div><h3>Results</h3></div>
             <div>
-              {this.state.displayResults.map((result, i) => {
-                return <div key={i}> {result} </div>
-              }
+              {this.state.displayResults.map((result, i) => 
+                 <div key={i}> {result} </div>
               )}
             </div>
             </div>
