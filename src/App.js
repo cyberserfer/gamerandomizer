@@ -14,14 +14,18 @@ class App extends Component {
       ]
     }
     this.genResults = this.genResults.bind(this);
+    this.checkForEnter = this.checkForEnter.bind(this);
     this.numberResultsReturned = this.numberResultsReturned.bind(this);
   }
 
+  checkForEnter(e){
+    if (e.key === 'Enter') {
+      this.genResults(e);
+    }
+  }
+
   genResults(e){
-    console.log("inside genResults")
-    this.setState({
-      displayResults: []
-    })
+    this.setState({ displayResults: [] })
     let addResult = []
     for(let i=0; i < this.state.numberOfResultsInput; i++){
       let siteTypeRandom = Math.floor(Math.random() * this.state.siteType.length);
@@ -29,9 +33,6 @@ class App extends Component {
       let siteTypeResult = this.state.siteType[siteTypeRandom];
       let salvageStateResult = this.state.salvageState[salvageStateRandom];
       addResult = [...addResult, siteTypeResult + " " + salvageStateResult];
-
-      console.log("end of function")
-      // console.log(this.state.displayResults)
     }
     this.setState({ displayResults: addResult})
   }
@@ -49,7 +50,7 @@ class App extends Component {
         </header>
         <h3>Enter number of results to return</h3>
           <div>
-            <input name="numberOfResults" onChange={this.numberResultsReturned}></input>
+            <input name="numberOfResults" onKeyPress={this.checkForEnter} onChange={this.numberResultsReturned}></input>
             <button onClick={this.genResults}>Submit</button>
             <div>
             <div><h3>Results</h3></div>
