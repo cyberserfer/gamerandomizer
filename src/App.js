@@ -22,20 +22,18 @@ class App extends Component {
     this.setState({
       displayResults: []
     })
-    let addResult
+    let addResult = []
     for(let i=0; i < this.state.numberOfResultsInput; i++){
       let siteTypeRandom = Math.floor(Math.random() * this.state.siteType.length);
       let salvageStateRandom = Math.floor(Math.random() * this.state.salvageState.length); 
       let siteTypeResult = this.state.siteType[siteTypeRandom];
       let salvageStateResult = this.state.salvageState[salvageStateRandom];
-      addResult = siteTypeResult + " " + salvageStateResult;
+      addResult = [...addResult, siteTypeResult + " " + salvageStateResult];
 
-      
-      
       console.log("end of function")
       // console.log(this.state.displayResults)
     }
-    this.setState({ displayResults: [...this.state.displayResults, addResult]})
+    this.setState({ displayResults: addResult})
   }
 
   numberResultsReturned(e){
