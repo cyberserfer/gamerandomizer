@@ -1,66 +1,51 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import customData from './customData.json';
+import TalolanEncounter from './TalolanEncounter';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      siteType: customData.siteType, 
-      salvageState: customData.salvageState,
       numberOfResultsInput: 0,
-      displayResults: [
-        "Results will show here"
-      ]
+      holdResultNumber: 0
     }
-    this.genResults = this.genResults.bind(this);
-    this.checkForEnter = this.checkForEnter.bind(this);
-    this.numberResultsReturned = this.numberResultsReturned.bind(this);
+  
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateResultsNumber = this.updateResultsNumber.bind(this);
   }
 
-  checkForEnter(e){
-    if (e.key === 'Enter') {
-      this.genResults(e);
-    }
+  updateResultsNumber(e){
+    this.setState({numberOfResultsInput: 0})
+    this.setState({holdResultNumber: e.target.value})
   }
 
-  genResults(e){
-    this.setState({ displayResults: [] })
-    let addResult = []
-    for(let i=0; i < this.state.numberOfResultsInput; i++){
-      let siteTypeRandom = Math.floor(Math.random() * this.state.siteType.length);
-      let salvageStateRandom = Math.floor(Math.random() * this.state.salvageState.length); 
-      let siteTypeResult = this.state.siteType[siteTypeRandom];
-      let salvageStateResult = this.state.salvageState[salvageStateRandom];
-      addResult = [...addResult, siteTypeResult + " " + salvageStateResult];
+  handleSubmit(e){
+      if (e.key === 'Enter') {
+        this.setState({numberOfResultsInput: e.target.value})
+      }else if(e.target.id === "submit"){
+        this.setState({numberOfResultsInput: this.state.holdResultNumber})
+      }
+      
     }
-    this.setState({ displayResults: addResult})
-  }
-
-  numberResultsReturned(e){
-    this.setState({numberOfResultsInput: e.target.value});
-  }
+  
 
   render() {
-    console.log(this.state.displayResults)
+
     return (
-      <div className="App">
-        <header className="App-header">
+      <div>
+        <header>
         <h2>Game Randomizer</h2>
         </header>
         <h3>Enter number of results to return</h3>
           <div>
-            <input name="numberOfResults" onKeyPress={this.checkForEnter} onChange={this.numberResultsReturned}></input>
-            <button onClick={this.genResults}>Submit</button>
+            <input name="numberOfResults" onKeyPress={this.handleSubmit} onBlur={ event => this.updateResultsNumber(event)} ></input>
+            <button id="submit" onClick={this.handleSubmit}>Submit</button>
+           
             <div>
-            <div><h3>Results</h3></div>
-            <div>
-              {this.state.displayResults.map((result, i) => 
-                 <div key={i}> {result} </div>
-              )}
+              <TalolanEncounter results={this.state.numberOfResultsInput} />
             </div>
-            </div>
+
           </div>
       </div>
     );

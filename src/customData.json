@@ -1,4 +1,5 @@
-{
-    "siteType":["Flora/Fauna Cloning", "Talolan Cloning", "Manufactoring"],
-    "salvageState": ["None", "Low", "Moderate", "High", "Intact"]
+{"talolanEncounter": {
+        "siteType":["Flora/Fauna Cloning", "Talolan Cloning", "Manufactoring"],
+        "salvageState": ["None", "Low", "Moderate", "High", "Intact"]
+    }
 }
