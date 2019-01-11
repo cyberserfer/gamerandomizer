@@ -4,49 +4,53 @@ import './index.css';
 import TalolanEncounter from './TalolanEncounter';
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      numberOfResultsInput: 0,
-      holdResultNumber: 0
+      numberOfResults: 0,
+      dataType: "",
+      submitSwitch: false
     }
-  
+
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.updateResultsNumber = this.updateResultsNumber.bind(this);
+    this.updateEventValue = this.updateEventValue.bind(this);
   }
 
-  updateResultsNumber(e){
-    this.setState({numberOfResultsInput: 0})
-    this.setState({holdResultNumber: e.target.value})
+  updateEventValue(e) {
+    this.setState({ [e.target.name]: e.target.value })
   }
 
-  handleSubmit(e){
-      if (e.key === 'Enter') {
-        this.setState({numberOfResultsInput: e.target.value})
-      }else if(e.target.id === "submit"){
-        this.setState({numberOfResultsInput: this.state.holdResultNumber})
-      }
-      
+  handleSubmit(e) {
+    if (e.key === 'Enter' || e.target.name === "submit") {
+      this.updateEventValue(e)
+      this.setState({ submitSwitch: true })
     }
-  
+
+  }
+
 
   render() {
 
     return (
       <div>
         <header>
-        <h2>Game Randomizer</h2>
+          <h2>Game Randomizer</h2>
         </header>
         <h3>Enter number of results to return</h3>
+        <div>
           <div>
-            <input name="numberOfResults" onKeyPress={this.handleSubmit} onBlur={ event => this.updateResultsNumber(event)} ></input>
-            <button id="submit" onClick={this.handleSubmit}>Submit</button>
-           
-            <div>
-              <TalolanEncounter results={this.state.numberOfResultsInput} />
-            </div>
-
+            <input type="radio" name="dataType" value="TalolanEncounter" onChange={event => this.updateEventValue(event)} />Talolan Encounter
+            <br />
+            <input type="radio" name="dataType" value="RandomEncounter" checked onChange={event => this.updateEventValue(event)} />Random Encounter
           </div>
+          <input name="numberOfResults" onKeyPress={this.handleSubmit} onBlur={event => this.updateEventValue(event)} ></input>
+          <button name="submit" onClick={this.handleSubmit}>Submit</button>
+
+          <div>
+            <TalolanEncounter results={this.state.numberOfResults} />
+          </div>
+
+        </div>
       </div>
     );
   }
