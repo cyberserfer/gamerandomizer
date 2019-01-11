@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import TalolanEncounter from './TalolanEncounter';
+import RandomEncounter from './RandomEncounter';
 
 class App extends Component {
   constructor(props) {
@@ -48,6 +49,7 @@ class App extends Component {
 
           <div>
             <TalolanEncounter results={this.state.numberOfResults} />
+            <RandomEncounter results={this.state.numberOfResults} />
           </div>
 
         </div>
