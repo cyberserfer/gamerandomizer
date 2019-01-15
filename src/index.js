@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import TalolanEncounter from './TalolanEncounter';
-import RandomEncounter from './RandomEncounter';
+import TalolanEncounter from './components/TalolanEncounter';
+import RandomEncounter from './components/RandomEncounter';
 
 class App extends Component {
   constructor(props) {
@@ -33,7 +33,7 @@ class App extends Component {
   render() {
 
     return (
-      <div>
+      <div style={{ marginLeft: '25px' }}>
         <header>
           <h2>Game Randomizer</h2>
         </header>
@@ -48,12 +48,15 @@ class App extends Component {
           <button name="submit" onClick={this.handleSubmit}>Submit</button>
 
           <div>
-            <TalolanEncounter results={this.state.numberOfResults} />
-            <RandomEncounter results={this.state.numberOfResults} />
+            {
+              (this.state.dataType === "TalolanEncounter")
+                ? <TalolanEncounter results={this.state.numberOfResults} />
+                : <RandomEncounter results={this.state.numberOfResults} />
+            }
           </div>
 
         </div>
-      </div>
+      </div >
     );
   }
 }
