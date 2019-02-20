@@ -1,5 +1,64 @@
-{"talolanEncounter": {
+{
+    "talolanEncounter": {
         "siteType":["Flora/Fauna Cloning", "Talolan Cloning", "Manufactoring"],
         "salvageState": ["None", "Low", "Moderate", "High", "Intact"]
-    }
+    },
+    "salvage": {
+        "condition": ["junk - useless", "salvage - good for parts", "fixable - needs parts", "working -1 until maintenanced", "perfect - just like new"],
+        "rarity": ["common", "uncommon", "rare", "very rare", "extremely rare"]
+    },
+    "building": [
+        "death trap - looks like the building will fall any momement",
+        "terrible - the buiding looks very unsafe",
+        "bad - the buiding looks quite iffy",
+        "cautious - the buiding looks to have some unsafe areas",
+        "fair - the buiding looks mostly stable",
+        "good - the building looks solid",
+        "great - the buiding is in great shape"
+    ],
+    "hazards": ["diesease", "radio-active", "toxic substance"],
+    "encounter": ["creature", "storm", "building", "encampment", "alien plants"],
+    "creatures": ["small animals", "medium animals", "large animals", "pack of animals", "exotic animal", "alien cross bread", "alien animal", "alien plan life"],
+
+    "items": {
+        "common": [
+            "wine",
+            "canned goods",
+            "home canned food",
+            "twinkies",
+            "flour sealed in container",
+            "bottle of honey",
+            "candy",
+            "plastic sealed food",
+            "sealed dogfood",
+            "soda - beer - bottled water",
+            "powdered drink packet",
+            "vehicle parts"
+        ],
+        "uncommon": [
+            "shotgun",
+            "LP tank"
+        ],
+        "rare": [
+            "gun scope",
+            "solar charger", 
+            "working batteries",
+            "iPod/iPad",
+            "Acytolene tank",
+            "oxygen tank"
+        ],
+        "very_rare": [
+            "automatic weapon",
+            "generator"
+        ],
+        "extremely_rare": [
+            "pharmaceuticles / medicine",
+            "working laptop"
+        ]
+    },
+    "location": [
+        "Fruit Cellar",
+        "basement storage",
+        "flooded basement"
+    ]
 }
