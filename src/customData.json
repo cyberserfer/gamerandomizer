@@ -1,11 +1,33 @@
 {
     "talolanEncounter": {
-        "siteType":["Flora/Fauna Cloning", "Talolan Cloning", "Manufactoring"],
-        "salvageState": ["None", "Low", "Moderate", "High", "Intact"]
+        "siteType": [
+            "Flora/Fauna Cloning",
+            "Talolan Cloning",
+            "Manufactoring"
+        ],
+        "salvageState": [
+            "None",
+            "Low",
+            "Moderate",
+            "High",
+            "Intact"
+        ]
     },
     "salvage": {
-        "condition": ["junk - useless", "salvage - good for parts", "fixable - needs parts", "working -1 until maintenanced", "perfect - just like new"],
-        "rarity": ["common", "uncommon", "rare", "very rare", "extremely rare"]
+        "condition": [
+            "junk - useless",
+            "salvage - good for parts",
+            "fixable - needs parts",
+            "working -1 until maintenanced",
+            "perfect - just like new"
+        ],
+        "rarity": [
+            "common",
+            "uncommon",
+            "rare",
+            "very rare",
+            "extremely rare"
+        ]
     },
     "building": [
         "death trap - looks like the building will fall any momement",
@@ -16,10 +38,28 @@
         "good - the building looks solid",
         "great - the buiding is in great shape"
     ],
-    "hazards": ["diesease", "radio-active", "toxic substance"],
-    "encounter": ["creature", "storm", "building", "encampment", "alien plants"],
-    "creatures": ["small animals", "medium animals", "large animals", "pack of animals", "exotic animal", "alien cross bread", "alien animal", "alien plan life"],
-
+    "hazards": [
+        "diesease",
+        "radio-active",
+        "toxic substance"
+    ],
+    "encounter": [
+        "creature",
+        "storm",
+        "building",
+        "encampment",
+        "alien plants"
+    ],
+    "creatures": [
+        "small animals",
+        "medium animals",
+        "large animals",
+        "pack of animals",
+        "exotic animal",
+        "alien cross bread",
+        "alien animal",
+        "alien plan life"
+    ],
     "items": {
         "common": [
             "wine",
@@ -41,7 +81,7 @@
         ],
         "rare": [
             "gun scope",
-            "solar charger", 
+            "solar charger",
             "working batteries",
             "iPod/iPad",
             "Acytolene tank",
@@ -61,7 +101,6 @@
         "basement storage",
         "flooded basement"
     ],
-
     "siteType": [
         "Flora/Fauna Cloning",
         "Talolan Cloning",
