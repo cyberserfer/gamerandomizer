@@ -60,5 +60,31 @@
         "Fruit Cellar",
         "basement storage",
         "flooded basement"
-    ]
+    ],
+
+    "siteType": [
+        "Flora/Fauna Cloning",
+        "Talolan Cloning",
+        "Manufactoring"
+    ],
+    "salvageState": [
+        "None",
+        "Low",
+        "Moderate",
+        "High",
+        "Intact"
+    ],
+    "randomEncounter": {
+        "encounterType": [
+            "Regugees",
+            "Mutant Creatures",
+            "Useful Resources"
+        ],
+        "distance": [
+            "less than 20 feet",
+            "100 feet away",
+            "300 feet away",
+            "off in the distance"
+        ]
+    }
 }
