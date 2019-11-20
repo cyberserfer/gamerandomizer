@@ -40,10 +40,10 @@ class App extends Component {
                 <h3>Enter number of results to return</h3>
                 <div>
                     <div>
-                        <input type="radio" name="dataType" value="TalolanEncounter" onChange={event => this.updateEventValue(event)} checked={(this.state.dataType.TalolanEncounter === 'TalolanEncounter') ? true : false} />Talolan Encounter
+                        <input type="radio" name="dataType" value="TalolanEncounter" onChange={event => this.updateEventValue(event)} checked={(this.state.dataType === 'TalolanEncounter') ? true : false} />Talolan Encounter
             <br />
-                        <input type="radio" name="dataType" value="RandomEncounter" checked onChange={event => this.updateEventValue(event)} checked={(this.state.dataType.RandomEncounter === 'RandomEncounter') ? true : false} />Random Encounter
-          </div>
+                        <input type="radio" name="dataType" value="RandomEncounter"  onChange={event => this.updateEventValue(event)} checked={(this.state.dataType === 'RandomEncounter') ? true : false} />Random Encounter
+                    </div>
                     <input name="numberOfResults" onKeyPress={this.handleSubmit} onBlur={event => this.updateEventValue(event)} ></input>
                     <button name="submit" onClick={this.handleSubmit}>Submit</button>
 
@@ -56,7 +56,7 @@ class App extends Component {
                     </div>
 
                 </div>
-            </div >
+            </div>
         );
     }
 }
