@@ -27,6 +27,10 @@ class App extends Component {
             this.setState({ submitSwitch: true })
         }
 
+    // handleChange = (selectedOption) => {
+    //     this.setState({ selectedOption });
+    //     }
+
     }
 
 
@@ -37,22 +41,20 @@ class App extends Component {
                 <header>
                     <h2>Game Randomizer</h2>
                 </header>
-                <h3>Enter number of results to return</h3>
                 <div>
-                    <div>
-                        <input type="radio" name="dataType" value="TalolanEncounter" onChange={event => this.updateEventValue(event)} checked={(this.state.dataType === 'TalolanEncounter') ? true : false} />Talolan Encounter
+                    <div>Select encounter type:</div>
+                    <select>
+                        <option name="dataType" value="TalolanEncounter" onChange={event => this.updateEventValue(event)} checked={(this.state.dataType === 'TalolanEncounter') ? true : false}>Talolan Encounter </option>
             <br />
-                        <input type="radio" name="dataType" value="RandomEncounter"  onChange={event => this.updateEventValue(event)} checked={(this.state.dataType === 'RandomEncounter') ? true : false} />Random Encounter
-                    </div>
+                        <option name="dataType" value="RandomEncounter"  onChange={event => this.updateEventValue(event)} checked={(this.state.dataType === 'RandomEncounter') ? true : false}>Random Encounter </option>
+                    </select>
+                    <div>Enter number of results to return</div>
                     <input name="numberOfResults" onKeyPress={this.handleSubmit} onBlur={event => this.updateEventValue(event)} ></input>
                     <button name="submit" onClick={this.handleSubmit}>Submit</button>
 
                     <div>
-                        {
-                            (this.state.dataType === "TalolanEncounter")
-                                ? <TalolanEncounter results={this.state.numberOfResults} />
-                                : <RandomEncounter results={this.state.numberOfResults} />
-                        }
+                        {(this.state.dataType === "TalolanEncounter") &&  <TalolanEncounter results={this.state.numberOfResults} />}
+                        {(this.state.dataType === "RandomEncounter") &&  <RandomEncounter results={this.state.numberOfResults} />}
                     </div>
 
                 </div>
