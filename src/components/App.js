@@ -18,10 +18,6 @@ class App extends Component {
 
     updateEventValue(e) {
         this.setState({ [e.target.name]: e.target.value });
-        console.log("in updateEventValue")
-        console.log("name" + e.target.name)
-        console.log(e.target.value)
-
     }
 
     handleSubmit(e) {
@@ -29,16 +25,11 @@ class App extends Component {
             this.updateEventValue(e)
             this.setState({ submitSwitch: true })
         }
-
-        // handleChange = (selectedOption) => {
-        //     this.setState({ selectedOption });
-        //     }
-
     }
 
 
     render() {
-        console.log(this.state.dataType)
+
         return (
             <div style={{ marginLeft: '25px' }}>
                 <header>
