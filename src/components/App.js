@@ -19,8 +19,8 @@ class App extends Component {
     updateEventValue(e) {
         this.setState({ [e.target.name]: e.target.value });
         console.log("in updateEventValue")
-        console.log(e.target.name)
-        console.log(e.target)
+        console.log("name" + e.target.name)
+        console.log(e.target.value)
 
     }
 
@@ -38,7 +38,6 @@ class App extends Component {
 
 
     render() {
-        console.log("dataType:")
         console.log(this.state.dataType)
         return (
             <div style={{ marginLeft: '25px' }}>
@@ -47,10 +46,10 @@ class App extends Component {
                 </header>
                 <div>
                     <div>Select encounter type:</div>
-                    <select>
-                        <option name="dataType" value="TalolanEncounter" onChange={event => this.updateEventValue(event)} checked={(this.state.dataType === 'TalolanEncounter') ? true : false}>Talolan Encounter </option>
+                    <select name="dataType" onChange={event => this.updateEventValue(event)}>
+                        <option value="TalolanEncounter" checked={(this.state.dataType === 'TalolanEncounter') ? true : false}>Talolan Encounter </option>
                         <br />
-                        <option name="dataType" value="RandomEncounter" onChange={event => this.updateEventValue(event)} checked={(this.state.dataType === 'RandomEncounter') ? true : false}>Random Encounter </option>
+                        <option value="RandomEncounter" checked={(this.state.dataType === 'RandomEncounter') ? true : false}>Random Encounter </option>
                     </select>
                     <div>Enter number of results to return</div>
                     <input name="numberOfResults" onKeyPress={this.handleSubmit} onBlur={event => this.updateEventValue(event)} ></input>
