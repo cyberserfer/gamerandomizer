@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import TalolanEncounter from './TalolanEncounter';
 import RandomEncounter from './RandomEncounter';
+import Hackathon from './Hackathon';
 
 class App extends Component {
     constructor(props) {
@@ -9,7 +10,6 @@ class App extends Component {
         this.state = {
             numberOfResults: 0,
             dataType: "",
-            submitSwitch: false
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,7 +23,6 @@ class App extends Component {
     handleSubmit(e) {
         if (e.key === 'Enter' || e.target.name === "submit") {
             this.updateEventValue(e)
-            this.setState({ submitSwitch: true })
         }
     }
 
@@ -38,17 +37,19 @@ class App extends Component {
                 <div>
                     <div>Select encounter type:</div>
                     <select name="dataType" onChange={event => this.updateEventValue(event)}>
+                        <option value="" checked={(this.state.dataType === '') ? true : false}>Select </option>
+                        <option value="Hackathon" checked={(this.state.dataType === 'Hackathon') ? true : false}>Hackathon </option>
                         <option value="TalolanEncounter" checked={(this.state.dataType === 'TalolanEncounter') ? true : false}>Talolan Encounter </option>
-                        <br />
                         <option value="RandomEncounter" checked={(this.state.dataType === 'RandomEncounter') ? true : false}>Random Encounter </option>
                     </select>
                     <div>Enter number of results to return</div>
-                    <input name="numberOfResults" onKeyPress={this.handleSubmit} onBlur={event => this.updateEventValue(event)} ></input>
+                    <input name="numberOfResults" onKeyPress={this.handleSubmit}></input>
                     <button name="submit" onClick={this.handleSubmit}>Submit</button>
 
                     <div>
                         {(this.state.dataType === "TalolanEncounter") && <TalolanEncounter results={this.state.numberOfResults} />}
                         {(this.state.dataType === "RandomEncounter") && <RandomEncounter results={this.state.numberOfResults} />}
+                        {(this.state.dataType === "Hackathon") && <Hackathon results={this.state.numberOfResults} />}
                     </div>
 
                 </div>

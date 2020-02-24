@@ -125,5 +125,11 @@
             "300 feet away",
             "off in the distance"
         ]
+    },
+    "hackathon": {
+        "people": [
+            "Paul Buss",
+            "Matt Fiss"
+        ]
     }
 }
